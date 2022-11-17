@@ -1,33 +1,14 @@
 const carsService = require("../service/carService");
-const cloudinary = require("./config/cloudinary");
+const cloudinary = require("../utils/cloudinary");
 
 const create = async (req, res, next) => {
-  const { name, price, size, photo} = req.body;
-  const result = await cloudinary.uploader.upload(photo);
+  const { name, price, size} = req.body;
   const { status, status_code, message, data } = await carsService.create({
     // id,
     name,
     price,
     size,
-    photo: req.uploaded_picture
-  });
-  const fileToUpload = req.file;
-
-  const fileBase64 = fileToUpload.buffer.toString("base64");
-  const file = `data:${fileToUpload.mimetype};base64,${fileBase64}`;
-  
-  cloudinary.uploader.upload(file, (err, result) => {
-    if (err) {
-
-      res.status(400).send(`Gagal mengupload file ke cloudinary: ${err.message}`);
-
-      return
-    }
-    res.status(status_code).send({
-      status: status,
-      message: message,
-      data: data,
-    })
+    photo: req.file
   });
     
   // const handelImage = (e) => {
@@ -42,6 +23,11 @@ const create = async (req, res, next) => {
   //     setImage(reader.result);
   //   }
   // }
+  res.status(status_code).send({
+    status: status,
+    message: message,
+    data: data,
+  });
   
 };
 

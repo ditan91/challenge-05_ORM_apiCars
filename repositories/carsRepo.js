@@ -1,12 +1,14 @@
 const { Car } = require("../models");
+const cloudinary = require("../utils/cloudinary");
 
 class CarsRepository {
   static async create({ name, price, size, photo }) {
+    const { url } = await cloudinary.upload(photo)
     const createdCar = Car.create({
       name,
       price,
       size,
-      photo
+      photo:url
     });
 
     return createdCar;

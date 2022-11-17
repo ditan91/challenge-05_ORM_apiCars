@@ -1,6 +1,7 @@
 const carRepository = require("../repositories/carsRepo");
 
 class CarService {
+  
   static async create({ name, price, size, photo }) {
     try {
       if (!name) {
