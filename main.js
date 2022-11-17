@@ -21,6 +21,7 @@ const carsController = require("./controller/carsController");
 
 //mo pake middlewarekah?
 app.get("/api/cars/:id", carsController.getCarsByID);
+app.get("/api/cars", carsController.getAll);
 app.post("/api/cars",upload.single("photo"), carsController.create); //masih kurang untuk upload file ke cloudinary
 app.delete("/api/cars/:id", carsController.deleteByID);
 app.put("/api/cars/:id", carsController.updateByID);

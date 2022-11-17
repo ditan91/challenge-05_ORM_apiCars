@@ -1,5 +1,4 @@
 const carsService = require("../service/carService");
-const cloudinary = require("../utils/cloudinary");
 
 const create = async (req, res, next) => {
   const { name, price, size} = req.body;
@@ -10,19 +9,7 @@ const create = async (req, res, next) => {
     size,
     photo: req.file
   });
-    
-  // const handelImage = (e) => {
-  //   const file = e.target.files[0];
-  //   setFileToBase(file);
-  //   console.log(file)
-  // }
-  // const setFileToBase = (file)=>{
-  //   const reader = new FileReader();
-  //   reader.readAsDataURL(file);
-  //   reader.onloadend = ()=>{
-  //     setImage(reader.result);
-  //   }
-  // }
+
   res.status(status_code).send({
     status: status,
     message: message,
@@ -81,19 +68,19 @@ const getCarsByID = async (req, res, next) => {
       data: data,
     });
 };
-// const getCars = async (req, res, next) => {
-//     const { id } = req.params;
+const getAll = async (req, res, next) => {
+    const { list } = carsService.getAll;
   
-//     const { status, status_code, message, data } =
-//       await usersService.getCarsByID({
-//         id,
-//       });
+    const { status, status_code, message, data } =
+      await carsService({
+        list,
+      });
   
-//     res.status(status_code).send({
-//       status: status,
-//       message: message,
-//       data: data,
-//     });
-// };
+    res.status(status_code).send({
+      status: status,
+      message: message,
+      data: data,
+    });
+};
 
-module.exports = { create, updateByID, deleteByID, getCarsByID };
+module.exports = { create, updateByID, deleteByID, getCarsByID, getAll };

@@ -170,6 +170,31 @@ class CarService {
           };
         }
     }
+    static async getAll({ Car }) {
+      try {
+        const getCars = await carRepository.getAll({
+          Car,
+        });
+  
+        return {
+          status: true,
+          status_code: 200,
+          message: "Success",
+          data: {
+            cars: getCars,
+          },
+        };
+      } catch (err) {
+        return {
+          status: false,
+          status_code: 500,
+          message: err.message,
+          // data: {
+          //   registered_user: null,
+          // },
+        };
+      }
+  }
 }
 
 module.exports = CarService;
