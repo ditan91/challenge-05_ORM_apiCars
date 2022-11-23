@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "ditanCofe.19",
-    "database": "challenge-05",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "your_username_db",
+    "password": "your_pass_db",
+    "database": "your_name_db",
+    "host": "your_host_db",
+    "dialect": "your_dialect"
   },
   "test": {
-    "username": "postgres",
-    "password": "ditanCofe.19",
-    "database": "challenge-05",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "your_username_db",
+    "password": "your_pass_db",
+    "database": "your_name_db",
+    "host": "your_host_db",
+    "dialect": "your_dialect"
   },
   "production": {
-    "username": "postgres",
-    "password": "ditanCofe.19",
-    "database": "challenge-05",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "your_username_db",
+    "password": "your_pass_db",
+    "database": "your_name_db",
+    "host": "your_host_db",
+    "dialect": "your_dialect"
   } 
 }
