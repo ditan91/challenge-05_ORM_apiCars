@@ -45,7 +45,7 @@ class CarsRepository {
     return getCar;
   }
   // static async getAll({ Car }) {
-  //   const getAll = await Car.;
+  //   const getAll = await Car;
 
   //   return getAll;
   // }
