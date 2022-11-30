@@ -109,29 +109,29 @@ class CarService {
 
         if (getCar.id == id) {
             const updatedCar = await carRepository.updateByID({
-            id,
-            name,
-            price,
-            size,
-            photo
+              id,
+              name,
+              price,
+              size,
+              photo
             });
 
             return {
-            status: true,
-            status_code: 200,
-            message: "Car updated successfully",
-            data: {
-                updated_Car: updatedCar,
-            },
+              status: true,
+              status_code: 200,
+              message: "Car updated successfully",
+              data: {
+                  updated_Car: updatedCar,
+              },
             };
         } else {
             return {
-            status: true,
-            status_code: 401,
-            message: "Resource Unauthorized",
-            data: {
-                updated_Car: null,
-            },
+              status: true,
+              status_code: 401,
+              message: "Resource Unauthorized",
+              data: {
+                  updated_Car: null,
+              },
             };
         }
         } catch (err) {
