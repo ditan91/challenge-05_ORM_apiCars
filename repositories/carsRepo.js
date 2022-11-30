@@ -44,11 +44,11 @@ class CarsRepository {
 
     return getCar;
   }
-  // static async getAll({ Car }) {
-  //   const getAll = await Car;
+  static async getAll() {
+    const getAll = await Car.findAll();
 
-  //   return getAll;
-  // }
+    return getAll;
+  }
 
 }
 

@@ -68,18 +68,14 @@ const getCarsByID = async (req, res, next) => {
       data: data,
     });
 };
-// const getAll = async (req, res, next) => {
-//     const { list } = carsService.getAll;
+const getAll = async (req, res, next) => {
   
-//     const { status, status_code, message, data } =
-//       await carsService({
-//         list,
-//       });
+    const { status, status_code, message, data } = await carsService.getAll();
   
-//     res.status(status_code).send({
-//       status: status,
-//       message: message,
-//       data: data,
-//     });
-// };\\
-module.exports = { create, updateByID, deleteByID, getCarsByID};
+    res.status(status_code).send({
+      status: status,
+      message: message,
+      data: data,
+    });
+};
+module.exports = { create, updateByID, deleteByID, getCarsByID, getAll};
